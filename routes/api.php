@@ -12,7 +12,30 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+ /*
+$this->get('students', 'Api\StudentController@index');
+$this->post('students', 'Api\StudentController@store');
+$this->put('students/{id}', 'Api\StudentController@update');
+$this->delete('students/{id}', 'Api\StudentController@delete');
+*/
+$this->group(['prefix' => 'v1', 'namespace' => 'Api\v1'], function (){
+   
+    $this->apiResource('students', 'StudentController');
+    $this->get('students/{id}/payments', 'StudentController@payments');
+    $this->get('students/{id}/essays', 'StudentController@essays');
 
+});
+
+
+$this->group(['prefix' => 'v2', 'namespace' => 'Api\v2'], function (){
+   
+     
+
+});
+
+
+/*
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+*/

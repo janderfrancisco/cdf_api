@@ -48,6 +48,23 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        
+        // added to show erros in api
+        if($exception instanceof \Synmfony\Compomnet\HttpKernel\Exception\NotFoundHttpException){
+            // return erro if ajax request
+            if ($request->expectsJson()){
+                return response()->json(['error' => 'Not Found', $exception->getStatusCode()]);
+            }
+        }
+
+      
+        if($exception instanceof \Synmfony\Compomnet\HttpKernel\Exception\MethodNotAllowedHttpException){
+            if ($request->expectsJson()){
+                return response()->json(['error' => 'Method not Allowed', $exception->getStatusCode()]);
+            }
+        }
+
+
         return parent::render($request, $exception);
     }
 }
