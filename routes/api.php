@@ -24,6 +24,10 @@ $this->group(['prefix' => 'v1', 'namespace' => 'Api\v1'], function (){
     $this->get('students/{id}/payments', 'StudentController@payments');
     $this->get('students/{id}/essays', 'StudentController@essays');
 
+    $this->apiResource('essay', 'EssayController');
+    $this->apiResource('annotation', 'AnnotationController');
+
+
 });
 
 

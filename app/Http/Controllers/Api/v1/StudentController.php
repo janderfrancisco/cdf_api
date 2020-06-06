@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
-use App\Http\Requests\StoreUpdateStudentFormRquest;
+use App\Http\Requests\StoreUpdateStudentFormRequest;
 
 class  StudentController extends Controller
 {
@@ -38,7 +38,7 @@ class  StudentController extends Controller
     }
 
     
-    public function store(StoreUpdateStudentFormRquest $request){
+    public function store(StoreUpdateStudentFormRequest $request){
       
         $student = $this->student->create($request->all());
         
