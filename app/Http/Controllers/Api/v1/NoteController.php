@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Api\v1;
  
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,7 +22,7 @@ class NoteController extends Controller
         $notes =  $this->note->paginate($this->totalPage);
 
         return response()->json($notes);
-        
+
     }
 
     public function show($id){
@@ -38,7 +37,7 @@ class NoteController extends Controller
     }
 
     
-    public function store(StoreUpdateAnnotationFormRequest $request){
+    public function store(StoreUpdateNoteFormRequest $request){
       
         $note = $this->note->create($request->all());
     

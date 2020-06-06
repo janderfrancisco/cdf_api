@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
-    
-    public function student(){
-        return $this->belongsTo(Student::class);
+    protected $fillable = ['title', 'qtd', 'price'];
+
+    public function payment(){
+        return $this->belongsTo(Payment::class);
     }
     
 }

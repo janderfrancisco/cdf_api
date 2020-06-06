@@ -26,6 +26,8 @@ $this->group(['prefix' => 'v1', 'namespace' => 'Api\v1'], function (){
 
     $this->apiResource('essay', 'EssayController');
     $this->apiResource('annotation', 'AnnotationController');
+    $this->apiResource('note', 'NoteController');
+    $this->apiResource('plan', 'PlanController');
 
 
 });
