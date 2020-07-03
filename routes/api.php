@@ -20,11 +20,11 @@ $this->delete('students/{id}', 'Api\StudentController@delete');
 */
 $this->group(['prefix' => 'v1', 'namespace' => 'Api\v1'], function (){
    
-    $this->apiResource('students', 'StudentController');
-    $this->get('students/{id}/payments', 'StudentController@payments');
-    $this->get('students/{id}/essays', 'StudentController@essays');
+    $this->apiResource('student', 'StudentController');
+    $this->get('student/{id}/payments', 'StudentController@payments');
+    $this->get('student/{id}/essays', 'StudentController@essays');
 
-    $this->apiResource('essay', 'EssayController');
+  //  $this->apiResource('essay', 'EssayController');
     $this->apiResource('annotation', 'AnnotationController');
     $this->apiResource('note', 'NoteController');
     $this->apiResource('plan', 'PlanController');
@@ -32,6 +32,7 @@ $this->group(['prefix' => 'v1', 'namespace' => 'Api\v1'], function (){
 
 });
 
+$this->get('essay', 'EssayController@index');
 
 $this->group(['prefix' => 'v2', 'namespace' => 'Api\v2'], function (){
    
